@@ -8,8 +8,7 @@ warnings.filterwarnings("ignore")
 
 class Block(nn.Module):
     """
-    A convolutional block used in the U-Net architecture, which includes two convolutional layers
-    with ReLU activation and batch normalization, followed by a max pooling layer.
+    Two convolutional layers with ReLU activation and batch normalization, followed by a max pooling layer.
 
     Parameters:
     - inputs (int): Number of input channels.
@@ -32,15 +31,6 @@ class Block(nn.Module):
 
 
 class UNet(nn.Module):
-    """
-    U-Net architecture for image segmentation, consisting of an encoder and decoder
-    with skip connections.
-
-    The encoder consists of blocks that downsample the input, and the decoder
-    uses transposed convolutions for upsampling, followed by concatenations
-    with corresponding encoder features.
-    """
-
     def __init__(self):
         super().__init__()
         self.en1 = Block(3, 64, 64)
